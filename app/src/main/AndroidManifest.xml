@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Pinduoduo_backdoor"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:configChanges="keyboard|orientation|screenSize" android:excludeFromRecents="true" android:exported="true" android:name=".alive.impl.provider.component.HFPActivity">
+            <intent-filter>
+                <action android:name="com.xunmeng.pinduoduo.goods.introduction.action"/>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CHOOSER"/>
+                <action android:name="android.settings.INPUT_METHOD_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/com.xunmeng.pinduoduo.introduction.html" android:scheme="content"/>
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.tech.pinduoduo_backdoor.AuthService" android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Pinduoduo_backdoor</string>
+    <string name="collectWeiboId">收集微博用户Id</string>
+</resources>
